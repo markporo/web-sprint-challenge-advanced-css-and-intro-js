@@ -230,10 +230,11 @@ console.log(artists[8].name);
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(arr, num) {
+  return `the artist at index ${num} is ${arr[num].name}`
 }
 
+// console.log(getArtistByIndex(artists, 8));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -244,9 +245,21 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/) {
-  /*Your Code Here*/
+function get20s(arr) {
+  let twentieththCenturyArtists = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let date = arr[i].years.split(" - ");
+
+    if (date[1] < 2000 && date[0] > 1899) {
+      twentieththCenturyArtists.push(arr[i].name);
+    }
+  }
+
+  return twentieththCenturyArtists;
 }
+
+// console.log(get20s(artists));
 
 
 
@@ -259,9 +272,14 @@ function get20s(/*Your Code Here*/) {
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function removeArtist(arr, num) {
+  arr.splice(num, 1);
+
+  // return `${arr[num].name} has been removed from the array.  There are ${arr.length} artists left in the array.`
+  return arr.length;
 }
+
+console.log(removeArtist(artists, 2));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -280,9 +298,21 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+let myInfo = {
+  id: 20,
+  name: "Mark Poro",
+  years: "1988 - current day",
+  genre: "Web Design",
+  nationality: "United States Citizen",
+  bio: "it's a little egotistical to add yourself into a category of great artists, but sure Mark totally deserves that with his graphic art accomplishments.  Umm WELL....ehhh....okay....uhh..sure i guess!"
 }
+
+function addArtist(arr, objInfo) {
+  arr.push(objInfo);
+  return arr;
+}
+
+// console.log(addArtist(artists, myInfo));
 
 
 
@@ -293,10 +323,16 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(arr) {
+  let artistsMoreThan100Paintings = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].paintings > 100) {
+      artistsMoreThan100Paintings.push(arr[i].name);
+    }
+  };
+  return artistsMoreThan100Paintings;
 }
-
+// console.log(lotsOfArt(artists));
 
 
 
