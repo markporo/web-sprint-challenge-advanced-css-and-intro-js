@@ -312,7 +312,7 @@ function addArtist(arr, objInfo) {
   return arr;
 }
 
-// console.log(addArtist(artists, myInfo));
+console.log(addArtist(artists, myInfo));
 
 
 
@@ -329,7 +329,7 @@ function lotsOfArt(arr) {
     if (arr[i].paintings > 100) {
       artistsMoreThan100Paintings.push(arr[i].name);
     }
-  };
+  }
   return artistsMoreThan100Paintings;
 }
 // console.log(lotsOfArt(artists));
@@ -358,21 +358,35 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */) {
+// function getHTML(data) {
 
-  /* Code here */
+// }
 
-}
+
 
 
 /* 💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪
 Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
 
-function randomize(/* Code here */) {
+function randomize(arr) {
 
-  /* Code here */
+  let randomIndex = [];
+  while (randomIndex.length < arr.length) {
+    let randomNum = Math.floor(Math.random() * arr.length)
+    if (!randomIndex.includes(randomNum)) {
+      randomIndex.push(randomNum)
+    }
+  }
 
+  let newRandomArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newRandomArray[i] = arr[randomIndex[i]]
+  }
+
+  return newRandomArray;
 }
+
+console.log(randomize(artists), "random artists array");
 
 
 /* 💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪
